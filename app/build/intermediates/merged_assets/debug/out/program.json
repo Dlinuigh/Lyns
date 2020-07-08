@@ -1,0 +1,14 @@
+[
+  {
+    "id": "2",
+    "argument_name": [
+      "money",
+      "time"
+    ],
+    "argument_value": [
+      "1",
+      "2"
+    ],
+    "answer": "2"
+  }
+]
