@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lynx.R;
 
@@ -27,13 +28,20 @@ import java.util.TimerTask;
 
 public class ChoiceFragment extends Fragment {
 
-    private View view;
     private Context context;
+    /*
+    在Fragment中如果找不到上下文，也就是context，那么需要重写下面这个方法。
+     */
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.context=getActivity();
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_choice,container,false);
+        View view = inflater.inflate(R.layout.fragment_choice, container, false);
         final Bundle bundle=this.getArguments();
         if(bundle!=null){
             String title = bundle.getString("title");
@@ -49,14 +57,16 @@ public class ChoiceFragment extends Fragment {
 
              */
 
-            View x_view=view.findViewById(R.id.choice_fragment);
+            View x_view= view.findViewById(R.id.choice_fragment);
             x_view.setVisibility(View.VISIBLE);
-            TextView titleview=view.findViewById(R.id.choice_title);
-            TextView contentview=view.findViewById(R.id.choice_content);
+            TextView titleview= view.findViewById(R.id.choice_title);
+            TextView contentview= view.findViewById(R.id.choice_content);
             titleview.setText(title);
             contentview.setText(content);
-            RadioGroup radioGroup=view.findViewById(R.id.choice_group);
-
+            RadioGroup radioGroup= view.findViewById(R.id.choice_group);
+            /*
+            下面是一个动态添加选项的方法，在这里面设置选项的各个布局参数即可。
+             */
             assert choices != null;
             for(int i = 0; i<choices.size(); i++){
                 RadioButton tempButton = new RadioButton(getContext());
@@ -73,16 +83,20 @@ public class ChoiceFragment extends Fragment {
                     assert answer != null;
                     for(String j:answer){
                         int i=Integer.parseInt(j);
-                        if(checkedId==i){
+                        if(button.getText().toString().equals(choices.get(i-1))){
                             button.setBackgroundColor(Color.GREEN);
-                           TimerTask task = new TimerTask() {
+                            Toast.makeText(context,"恭喜！选择正确。",Toast.LENGTH_SHORT).show();
+                            /*
+                            这里是一个延时写法，因为我的目的是让正确选项先变绿后变成无色。不正确的选项不变色，并且会Toast提示正确。
+                             */
+                            TimerTask task = new TimerTask() {
                                @Override
                                public void run() {
                                    button.setBackgroundColor(Color.WHITE);
                                }
-                           };
-                           Timer timer=new Timer();
-                           timer.schedule(task,1000);
+                            };
+                            Timer timer=new Timer();
+                            timer.schedule(task,1000);
                         }
                     }
 

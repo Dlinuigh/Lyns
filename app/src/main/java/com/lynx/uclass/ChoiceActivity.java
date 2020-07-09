@@ -15,6 +15,7 @@ import com.lynx.R;
 import java.util.ArrayList;
 
 public class ChoiceActivity extends AppCompatActivity {
+    Context context;
     /*
     天煞的 autostart，根本就是一个病态方法，总是出错，包容性不强，还是自己掌握原理比较好。
      */
