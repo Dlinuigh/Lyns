@@ -32,6 +32,18 @@
     <string name="feedback">反馈</string>
     <string name="about">关于</string>
     <string name="settings">设置</string>
+    <string name="alert_text">你将要关闭这个界面，并且你输入了一些内容，</string>
+    <string name="alert_message">你需要保存这些信息吗？</string>
+    <string name="alert_negative">不，我不想</string>
+    <string name="alert_positive">好的，下次我也能看到</string>
+    <string name="alert_negative_message">你的记录没有被保存</string>
+    <string name="alert_positive_message">你的记录已保存</string>
+    <string name="a">a</string>
+    <string name="b">b</string>
+    <string name="c">c</string>
+    <string name="d">d</string>
+    <string name="edit_destory">销毁</string>
+    <string name="edit_finish">完成</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

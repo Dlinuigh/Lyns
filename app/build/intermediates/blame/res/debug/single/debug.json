@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/layout_activity_statement.xml.flat",
+        "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/layout/activity_statement.xml"
+    },
+    {
         "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/layout_activity_program.xml.flat",
         "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/layout/activity_program.xml"
     },
@@ -20,16 +24,16 @@
         "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
-    },
-    {
         "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
         "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/navigation_mobile_navigation.xml.flat",
         "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/navigation/mobile_navigation.xml"
+    },
+    {
+        "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/drawable/ic_launcher_foreground.xml"
     },
     {
         "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/layout_fragment_choice.xml.flat",
@@ -84,12 +88,12 @@
         "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/layout/settings_activity.xml"
     },
     {
-        "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/mipmap-mdpi/ic_launcher.png"
-    },
-    {
         "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/layout_fragment_program.xml.flat",
         "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/layout/fragment_program.xml"
+    },
+    {
+        "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },
     {
         "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/drawable_ic_menu_slideshow.xml.flat",
@@ -106,6 +110,10 @@
     {
         "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/drawable_messages.xml.flat",
         "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/drawable/messages.xml"
+    },
+    {
+        "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/layout_fragment_statement.xml.flat",
+        "source": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/src/main/res/layout/fragment_statement.xml"
     },
     {
         "merged": "/home/dinglinghui/AndroidStudioProjects/Lynx/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",

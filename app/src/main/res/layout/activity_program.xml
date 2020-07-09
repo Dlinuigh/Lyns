@@ -5,5 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".uclass.programming.ProgramActivity">
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pfragment"
+        android:name="com.lynx.uclass.programming.ProgramFragment"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

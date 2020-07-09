@@ -19,7 +19,9 @@ import com.google.gson.reflect.TypeToken;
 import com.lynx.R;
 import com.lynx.uclass.mutiplechoice.choice;
 import com.lynx.uclass.mutiplechoice.ChoiceActivity;
+import com.lynx.uclass.programming.ProgramActivity;
 import com.lynx.uclass.programming.program;
+import com.lynx.uclass.statement.StatementActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -27,6 +29,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 import static com.google.android.material.internal.ContextUtils.getActivity;
 
@@ -63,19 +66,34 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         ArrayList<choice> arrayList=gson.fromJson(json,new TypeToken<List<choice>>(){}.getType());
                         assert arrayList != null;
                         Log.e("ItemAdapter","arrayList's size is: "+ arrayList.size());
-                        for(choice i:arrayList){
+                        /*
+                        下面这个循环很重要，帮助确定列表里面是否存在某个值。
+                         */
+                        boolean hasId=false;
+                        choice choice= new choice();
+                        for(choice i: arrayList){
                             if(i.getId()==key){
-                                Intent intent=new Intent(context, ChoiceActivity.class);
-                                Bundle bundle=new Bundle();
-                                bundle.putStringArrayList("choices",i.getChoices());
-                                bundle.putStringArrayList("answer",i.getAnswer());
-                                bundle.putString("title",lpclass.getTitle());
-                                bundle.putString("content",lpclass.getContent());
-                                intent.putExtra("bundle",bundle);
-                                context.startActivity(intent);
-                            }else{
-
+                                hasId=true;
+                                choice=i;
+                                break;
                             }
+                        }
+                        if(hasId){
+                            Intent intent=new Intent(context, ChoiceActivity.class);
+                            Bundle bundle=new Bundle();
+                            bundle.putStringArrayList("choices",choice.getChoices());
+                            bundle.putStringArrayList("answer",choice.getAnswer());
+                            bundle.putString("title",lpclass.getTitle());
+                            bundle.putString("content",lpclass.getContent());
+                            intent.putExtra("bundle",bundle);
+                            context.startActivity(intent);
+                        }else{
+                            Intent intent=new Intent(context, StatementActivity.class);
+                            Bundle bundle=new Bundle();
+                            bundle.putString("title",lpclass.getTitle());
+                            bundle.putString("content",lpclass.getContent());
+                            intent.putExtra("bundle",bundle);
+                            context.startActivity(intent);
                         }
                     }else{
                         String filename = "choice_practice.json";
@@ -83,34 +101,65 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         Gson gson=new Gson();
                         ArrayList<choice> choices=gson.fromJson(json,new TypeToken<List<choice>>(){}.getType());
                         assert choices != null;
-                        for(choice i:choices){
+                        boolean hasId=false;
+                        choice choice= new choice();
+                        for(choice i: choices){
                             if(i.getId()==key){
-                                Intent intent=new Intent(context,ChoiceActivity.class);
+                                hasId=true;
+                                choice=i;
+                                break;
+                            }
+                        }
+                        if(hasId){
+                            Intent intent=new Intent(context,ChoiceActivity.class);
+                            Bundle bundle=new Bundle();
+                            bundle.putStringArrayList("choices",choice.getChoices());
+                            bundle.putStringArrayList("answer",choice.getAnswer());
+                            bundle.putString("title",lpclass.getTitle());
+                            bundle.putString("content",lpclass.getContent());
+                            intent.putExtra("bundle",bundle);
+                            context.startActivity(intent);
+                        }else{
+                            filename = "program.json";
+                            json=loadConfig(filename);
+                            gson=new Gson();
+                            ArrayList<program> programs=gson.fromJson(json,new TypeToken<List<program>>(){}.getType());
+                            assert programs != null;
+                            boolean hasid=false;
+                            program program= new program();
+                            for(program i: programs){
+                                if(i.getId()==key){
+                                    hasid=true;
+                                    program=i;
+                                    break;
+                                }
+                            }
+                            if(hasid){
+                                Intent intent=new Intent(context, ProgramActivity.class);
                                 Bundle bundle=new Bundle();
-                                bundle.putStringArrayList("choices",i.getChoices());
-                                bundle.putStringArrayList("answer",i.getAnswer());
+                                bundle.putStringArrayList("values",program.getArgument_value());
+                                bundle.putStringArrayList("names",program.getArgument_name());
                                 bundle.putString("title",lpclass.getTitle());
                                 bundle.putString("content",lpclass.getContent());
+                                bundle.putString("answer",program.getAnswer());
+                                bundle.putInt("id",program.getId());
                                 intent.putExtra("bundle",bundle);
                                 context.startActivity(intent);
                             }else{
-                                filename = "program.json";
-                                ArrayList<program> programArrayList=new ArrayList<>();
-                                json=loadConfig(filename);
-                                gson=new Gson();
-                                ArrayList<program> programs=gson.fromJson(json,new TypeToken<List<program>>(){}.getType());
-                                for(program j:programs) {
-                                    programArrayList.add(j);
-                                }
-                                for(program j:programArrayList){
-                                    if(j.getId()==key){
-
-                                    }else{
-
-                                    }
+                                Random random=new Random();
+                                int i=random.nextInt(programs.size());
+                                program new_program=programs.get(i);
+                                    Intent intent=new Intent(context, ProgramActivity.class);
+                                    Bundle bundle=new Bundle();
+                                    bundle.putStringArrayList("values",new_program.getArgument_value());
+                                    bundle.putStringArrayList("names",new_program.getArgument_name());
+                                    bundle.putString("title",lpclass.getTitle());
+                                    bundle.putString("content",lpclass.getContent());
+                                    bundle.putString("answer",new_program.getAnswer());
+                                    intent.putExtra("bundle",bundle);
+                                    context.startActivity(intent);
                                 }
                             }
-                        }
 
                     }
                 }
@@ -122,9 +171,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if(context == null){
-            context=parent.getContext();
-        }
         //Log.e("ItemAdapter","init a view");
         View itemView = LayoutInflater.from(context).inflate(R.layout.lpcitems_view,parent,false);
         return new ViewHolder(itemView);

@@ -18,12 +18,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.lynx.uclass.ProgramActivity" />
-        <activity android:name="com.lynx.uclass.ChoiceActivity" />
+        <activity android:name="com.lynx.uclass.statement.StatementActivity" />
+        <activity android:name="com.lynx.uclass.programming.ProgramActivity" />
+        <activity android:name="com.lynx.uclass.mutiplechoice.ChoiceActivity" />
         <activity android:name="com.lynx.navigation.report.ReportActivity" />
         <activity android:name="com.lynx.navigation.about.AboutActivity" />
         <activity android:name="com.lynx.navigation.feedback.FeedbackActivity" />
-        <activity android:name="com.lynx.uclass.ItemActivity" />
+        <activity android:name="com.lynx.uclass.item.ItemActivity" />
         <activity
             android:name="com.lynx.navigation.settings.SettingsActivity"
             android:label="@string/title_activity_settings" />

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class program implements Serializable {
     private int id;
-    private String title;
     private ArrayList<String> argument_name;
     private ArrayList<String> argument_value;
     private String answer;
@@ -16,14 +15,6 @@ public class program implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public ArrayList<String> getArgument_name() {

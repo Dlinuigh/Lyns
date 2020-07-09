@@ -12,7 +12,6 @@ import android.util.Log;
 import com.lynx.R;
 
 public class ChoiceActivity extends AppCompatActivity {
-    Context context;
     /*
     天煞的 autostart，根本就是一个病态方法，总是出错，包容性不强，还是自己掌握原理比较好。
      */
@@ -33,6 +32,7 @@ public class ChoiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choice);
         Intent intent=getIntent();
         Bundle mbundle=intent.getBundleExtra("bundle");
+        assert mbundle != null;
         Log.e("ChoiceActivity",mbundle.toString());
         /*assert bundle != null;
         String title=bundle.getString("title");
@@ -60,8 +60,6 @@ public class ChoiceActivity extends AppCompatActivity {
         mbundle.putStringArrayList("answer",answer);
 
          */
-        assert choiceFragment != null;
-        assert mbundle != null;
         choiceFragment.setArguments(mbundle);
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
