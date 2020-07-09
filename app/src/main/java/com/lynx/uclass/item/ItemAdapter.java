@@ -1,4 +1,4 @@
-package com.lynx.uclass;
+package com.lynx.uclass.item;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lynx.R;
+import com.lynx.uclass.mutiplechoice.choice;
+import com.lynx.uclass.mutiplechoice.ChoiceActivity;
+import com.lynx.uclass.programming.program;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -54,7 +57,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     lpclass lpclass=lpclassArrayList.get(getLayoutPosition());
                     int key=lpclass.getId();
                     if(islearn){
-                        String filename = "choice.json";
+                        String filename = "choice_learn.json";
                         String json=loadConfig(filename);
                         Gson gson=new Gson();
                         ArrayList<choice> arrayList=gson.fromJson(json,new TypeToken<List<choice>>(){}.getType());
@@ -62,7 +65,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         Log.e("ItemAdapter","arrayList's size is: "+ arrayList.size());
                         for(choice i:arrayList){
                             if(i.getId()==key){
-                                Intent intent=new Intent(context,ChoiceActivity.class);
+                                Intent intent=new Intent(context, ChoiceActivity.class);
                                 Bundle bundle=new Bundle();
                                 bundle.putStringArrayList("choices",i.getChoices());
                                 bundle.putStringArrayList("answer",i.getAnswer());
@@ -75,16 +78,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             }
                         }
                     }else{
-                        String filename = "choice.json";
-                        ArrayList<choice> choiceArrayList=new ArrayList<>();
+                        String filename = "choice_practice.json";
                         String json=loadConfig(filename);
                         Gson gson=new Gson();
                         ArrayList<choice> choices=gson.fromJson(json,new TypeToken<List<choice>>(){}.getType());
                         assert choices != null;
-                        choiceArrayList.addAll(choices);
-                        for(choice i:choiceArrayList){
+                        for(choice i:choices){
                             if(i.getId()==key){
-
+                                Intent intent=new Intent(context,ChoiceActivity.class);
+                                Bundle bundle=new Bundle();
+                                bundle.putStringArrayList("choices",i.getChoices());
+                                bundle.putStringArrayList("answer",i.getAnswer());
+                                bundle.putString("title",lpclass.getTitle());
+                                bundle.putString("content",lpclass.getContent());
+                                intent.putExtra("bundle",bundle);
+                                context.startActivity(intent);
                             }else{
                                 filename = "program.json";
                                 ArrayList<program> programArrayList=new ArrayList<>();

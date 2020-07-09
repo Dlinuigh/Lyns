@@ -12,7 +12,7 @@ import com.lynx.navigation.about.AboutActivity;
 import com.lynx.navigation.feedback.FeedbackActivity;
 import com.lynx.navigation.report.ReportActivity;
 import com.lynx.navigation.settings.SettingsActivity;
-import com.lynx.uclass.ItemActivity;
+import com.lynx.uclass.item.ItemActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;

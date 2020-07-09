@@ -1,10 +1,5 @@
-package com.lynx.uclass;
+package com.lynx.uclass.item;
 
-import androidx.annotation.RequiresApi;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.annotation.SuppressLint;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,9 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lynx.R;
@@ -29,9 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
 
 public class ItemFragment extends Fragment {

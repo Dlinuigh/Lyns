@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/learn"
-        android:name="com.lynx.uclass.ItemFragment"
+        android:name="com.lynx.uclass.item.ItemFragment"
         android:label="@string/learn"
         tools:layout="@layout/item_activity" />
 
     <fragment
         android:id="@+id/practice"
-        android:name="com.lynx.uclass.ItemFragment"
+        android:name="com.lynx.uclass.item.ItemFragment"
         android:label="@string/practice"
         tools:layout="@layout/item_activity" />
 
     <fragment
         android:id="@+id/feedback"
-        android:name="com.lynx.uclass.ItemFragment"
+        android:name="com.lynx.uclass.item.ItemFragment"
         android:label="@string/feedback"
         tools:layout="@layout/activity_feedback"/>
 
     <fragment
         android:id="@+id/report"
-        android:name="com.lynx.uclass.ItemFragment"
+        android:name="com.lynx.uclass.item.ItemFragment"
         android:label="@string/report"
         tools:layout="@layout/activity_report"/>
 
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/about"
-        android:name="com.lynx.uclass.ItemFragment"
+        android:name="com.lynx.uclass.item.ItemFragment"
         android:label="@string/about"
         tools:layout="@layout/activity_about"/>
 </navigation>

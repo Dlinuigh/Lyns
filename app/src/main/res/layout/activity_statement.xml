@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".uclass.mutiplechoice.ChoiceActivity">
-    <androidx.fragment.app.FragmentContainerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragment"
-        android:name="com.lynx.uclass.ChoiceFragment"/>
+    tools:context=".uclass.statement.StatementActivity">
+
 </androidx.constraintlayout.widget.ConstraintLayout>

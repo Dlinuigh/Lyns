@@ -1,4 +1,4 @@
-package com.lynx.uclass;
+package com.lynx.uclass.item;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.lynx.uclass;
+package com.lynx.uclass.programming;
 
 import java.io.Serializable;
 import java.util.ArrayList;

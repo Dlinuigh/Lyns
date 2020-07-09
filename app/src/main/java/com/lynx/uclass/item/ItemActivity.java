@@ -1,16 +1,11 @@
-package com.lynx.uclass;
+package com.lynx.uclass.item;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
-import com.google.android.material.navigation.NavigationView;
 import com.lynx.R;
-
-import java.util.ArrayList;
 
 public class ItemActivity extends AppCompatActivity {
 

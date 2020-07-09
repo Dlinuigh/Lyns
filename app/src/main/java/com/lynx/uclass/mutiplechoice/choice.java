@@ -1,4 +1,4 @@
-package com.lynx.uclass;
+package com.lynx.uclass.mutiplechoice;
 
 import java.io.Serializable;
 import java.util.ArrayList;

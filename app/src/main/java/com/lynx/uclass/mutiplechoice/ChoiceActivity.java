@@ -1,4 +1,4 @@
-package com.lynx.uclass;
+package com.lynx.uclass.mutiplechoice;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -8,11 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.RadioButton;
 
 import com.lynx.R;
-
-import java.util.ArrayList;
 
 public class ChoiceActivity extends AppCompatActivity {
     Context context;

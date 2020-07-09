@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".uclass.ProgramActivity"></activity>
-        <activity android:name=".uclass.ChoiceActivity" />
+        <activity android:name=".uclass.statement.StatementActivity"></activity>
+        <activity android:name=".uclass.programming.ProgramActivity" />
+        <activity android:name=".uclass.mutiplechoice.ChoiceActivity" />
         <activity android:name=".navigation.report.ReportActivity" />
         <activity android:name=".navigation.about.AboutActivity" />
         <activity android:name=".navigation.feedback.FeedbackActivity" />
-        <activity android:name=".uclass.ItemActivity" />
+        <activity android:name=".uclass.item.ItemActivity" />
         <activity
             android:name=".navigation.settings.SettingsActivity"
             android:label="@string/title_activity_settings" />

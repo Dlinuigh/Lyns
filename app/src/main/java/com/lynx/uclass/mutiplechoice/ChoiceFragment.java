@@ -1,4 +1,4 @@
-package com.lynx.uclass;
+package com.lynx.uclass.mutiplechoice;
 
 import android.content.Context;
 import android.graphics.Color;
