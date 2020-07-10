@@ -4,9 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.lynx.navigation.about.AboutActivity;
 import com.lynx.navigation.feedback.FeedbackActivity;
@@ -16,16 +22,19 @@ import com.lynx.uclass.item.ItemActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.ActionMenuView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import static android.view.KeyEvent.KEYCODE_BACK;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawer;
-
-    @SuppressLint("ResourceType")
+    private WebView webView;
+    @SuppressLint({"ResourceType", "SetJavaScriptEnabled"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +43,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        webView=findViewById(R.id.webview);
+        WebSettings webSettings=webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webSettings.setAllowContentAccess(true);
 
+
+        webView.loadUrl("file:///android_asset/index.html");
         Log.wtf("MainActivity","begin def drawer");
         drawer = findViewById(R.id.drawer_layout);
         //View view=View.inflate(this,R.layout.)
@@ -96,8 +112,21 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-    }
+        ActionMenuView actionMenuView=findViewById(R.id.mutiple_action);
 
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        WebView webView = null;
+        if (BuildConfig.DEBUG) {
+            throw new AssertionError("Assertion failed");
+        }
+        if ((keyCode == KEYCODE_BACK) && webView.canGoBack()) {
+            webView.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

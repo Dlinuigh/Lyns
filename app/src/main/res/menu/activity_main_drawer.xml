@@ -4,27 +4,30 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/learn"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_learn_24"
             android:title="@string/learn" />
         <item
             android:id="@+id/practice"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_practice_24"
             android:title="@string/practice" />
         <item
             android:id="@+id/settings"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/settings" />
+
+    </group>
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/feedback"
-            android:icon="@drawable/abc_vector_test"
+            android:icon="@drawable/ic_baseline_feedback_24"
             android:title="@string/feedback"/>
         <item
             android:id="@+id/report"
-            android:icon="@drawable/abc_vector_test"
+            android:icon="@drawable/ic_baseline_report_24"
             android:title="@string/report"/>
         <item
             android:id="@+id/about"
-            android:icon="@drawable/abc_vector_test"
+            android:icon="@drawable/ic_baseline_about_24"
             android:title="@string/about"/>
     </group>
 </menu>

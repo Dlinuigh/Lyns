@@ -49,12 +49,6 @@ public class ProgramFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       return inflater.inflate(R.layout.fragment_program,container,false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
         final Bundle bundle=this.getArguments();
         if(bundle!=null){
             String title=bundle.getString("title");
@@ -72,6 +66,7 @@ public class ProgramFragment extends Fragment {
             FloatingActionButton floatingActionButton=getActivity().findViewById(R.id.program_run);
 
             id=bundle.getInt("id");
+            Log.e("ProgramFragment","id: "+id);
             editText=getActivity().findViewById(R.id.program_edit);
             filename="id"+id+"program.py";
             inputText=null;
@@ -80,19 +75,19 @@ public class ProgramFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if(!TextUtils.isEmpty(inputText)) {
+            if(inputText.length()!=0) {
+                Log.e("ProgramFragment","inputText is not empty");
                 editText.setText(inputText);
                 editText.setSelection(inputText.length());
                 //Toast.makeText(context, R.string.a, Toast.LENGTH_SHORT).show();
             }
 
+            Log.e("ProgramFragment","editText: "+editText.getText().toString());
             floatingActionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.e("ProgramFragment","floating button is clicked");
-                    String editFile= editText.getText().toString();
-                    save(editFile, filename);
-                    Toast.makeText(context, R.string.alert_positive_message, Toast.LENGTH_SHORT).show();
+
                 }
             });
             Button button1=getActivity().findViewById(R.id.program_edit_finish);
@@ -101,7 +96,7 @@ public class ProgramFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Log.e("ProgramFragment","finish button1 clicked");
-                    new AlertDialog.Builder(context)
+                    new AlertDialog.Builder(getContext())
                             .setTitle(R.string.alert_text)
                             .setMessage(R.string.alert_message)
                             .setNegativeButton(R.string.alert_negative, new DialogInterface.OnClickListener() {
@@ -115,6 +110,7 @@ public class ProgramFragment extends Fragment {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     String editFile = editText.getText().toString();
+                                    Log.e("ProgramFragment","editText: "+editFile);
                                     save(editFile, filename);
                                     Toast.makeText(context, R.string.alert_positive_message, Toast.LENGTH_SHORT).show();
                                 }
@@ -130,7 +126,7 @@ public class ProgramFragment extends Fragment {
                 }
             });
         }
-
+       return inflater.inflate(R.layout.fragment_program,container,false);
     }
 
     public void save(String inputText, String fileName){
@@ -153,7 +149,7 @@ public class ProgramFragment extends Fragment {
         }
     }
     public String load(String fileName) throws IOException {
-        FileInputStream in = null;
+        FileInputStream in;
         BufferedReader reader=null;
         StringBuilder content=new StringBuilder();
         try{
